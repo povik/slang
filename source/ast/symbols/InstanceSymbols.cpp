@@ -1335,10 +1335,11 @@ std::span<const AssertionExpr* const> UninstantiatedDefSymbol::getPortConnection
             }
             else if (port->kind == SyntaxKind::NamedPortConnection) {
                 auto& npc = port->as<NamedPortConnectionSyntax>();
-                names.push_back(npc.name.valueText());
 
-                if (auto ex = npc.expr)
+                if (auto ex = npc.expr) {
+                    names.push_back(npc.name.valueText());
                     results.push_back(bindUnknownPortConn(context, *ex));
+                }
             }
         }
 
