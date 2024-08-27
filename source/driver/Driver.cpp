@@ -705,6 +705,10 @@ void Driver::addParseOptions(Bag& bag) const {
     for (const auto& d : options.ignoreDirectives)
         ppoptions.ignoreDirectives.emplace(d);
 
+    ppoptions.enableCompatPragmas = true;
+    ppoptions.compatOnPragma = "\\/\\/.*(synopsys|pragma).+(translate_on|synthesis_on).*";
+    ppoptions.compatOffPragma = "\\/\\/.*(synopsys|pragma).+(translate_off|synthesis_off).*";
+
     LexerOptions loptions;
     loptions.languageVersion = languageVersion;
     loptions.enableLegacyProtect = options.enableLegacyProtect == true;
