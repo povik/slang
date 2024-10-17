@@ -1243,7 +1243,7 @@ bool detectTranslateOnOffPragma(std::string_view view, bool offMode)
 
             cpos++;
         } else {
-            while ((*clower)[cpos] < *p && clower < cupper) clower++;
+            while (clower < cupper && (*clower)[cpos] < *p) clower++;
             while (cupper > clower && (*(cupper - 1))[cpos] > *p) cupper--;
 
             if (clower == cupper)
