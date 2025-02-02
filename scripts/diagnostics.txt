@@ -992,7 +992,7 @@ error IllegalReferenceToProgramItem "cannot reference program item from outside 
 error HierarchicalFromPackage "cannot use hierarchical reference from within a package"
 error CompilationUnitFromPackage "cannot reference compilation unit item from within a package"
 error InvalidHierarchicalIfacePortConn "cannot connect interface port hierarchically through a generate block or instance array"
-warning unknown-sys-name UnknownSystemName "unknown system name '{}'"
+error UnknownSystemName "unknown system name '{}'"
 warning dup-import DuplicateImport "duplicate import declaration is redundant"
 warning duplicate-definition DuplicateDefinition "duplicate definition of '{}'"
 
@@ -1118,7 +1118,7 @@ error InvalidBindTarget "'{}' is not a valid bind target; only modules and inter
 error WrongBindTargetDef "bind target '{}' is not an instance of '{}'"
 error BindTypeParamNotFound "bind type parameter '{}' resolves to {} which cannot be found in source scope"
 error BindTypeParamMismatch "bind type parameter '{}' resolves to {} in source scope but {} in target scope"
-error MissingTimeScale "design element does not have a time scale defined but others in the design do"
+warning missing-timescale MissingTimeScale "design element does not have a time scale defined but others in the design do" 
 error MissingExternModuleImpl "missing implementation for extern {} '{}'"
 error ExternDeclMismatchImpl "extern {} '{}' does not match implementation"
 error ExternDeclMismatchPrev "extern {} '{}' does not match previous extern definition"
@@ -1197,7 +1197,7 @@ group default = { real-underflow real-overflow vector-overflow int-overflow unco
                   invalid-pragma-viewport duplicate-definition protect-encoding-bytes invalid-encoding-byte
                   raw-protect-eof protected-envelope specify-param dup-timing-path invalid-pulsestyle
                   negative-timing-limit bad-procedural-force duplicate-defparam implicit-port-type-mismatch
-                  split-distweight-op dpi-pure-task multibit-edge unknown-sys-name unknown-library
+                  split-distweight-op dpi-pure-task multibit-edge unknown-library
                   dup-config-rule unused-config-cell unused-config-instance specify-condition-expr
                   seq-no-match case-too-complex }
 
